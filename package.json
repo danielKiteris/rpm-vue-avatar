@@ -2,8 +2,8 @@
   "name": "rpm-avatar",
   "version": "1.0.0",
   "description": "A ReadyPlayerMe vue.js component integration",
-  "main": "src/RPMAvatar.js",
-  "bin": "src/RPMAvatar.js",
+  "main": "src/RPMAvatar.vue",
+  "bin": "src/RPMAvatar.vue",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
