@@ -1,6 +1,6 @@
 {
   "name": "rpm-avatar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A ReadyPlayerMe vue.js component integration",
   "main": "src/RPMAvatar.vue",
   "bin": "src/RPMAvatar.vue",
