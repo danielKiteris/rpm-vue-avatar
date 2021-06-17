@@ -70,7 +70,7 @@ export default {
   name: "RPMAvatar",
   data() {
     return {
-      iframeCreated = false
+      iframeCreated: false
     }
   },
   methods: {
