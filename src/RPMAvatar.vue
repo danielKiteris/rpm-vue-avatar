@@ -4,7 +4,7 @@
       type="button"
       id="startButton"
       value="Avatar"
-      @click="makeAvatar()"
+      @click="makeAvatar"
       v-if="!iframeCreated"
     />
     <input
@@ -12,7 +12,7 @@
       type="button"
       id="closeModal"
       value="X"
-      @click="closeModal()"
+      @click="closeModal"
       v-if="iframeCreated"
     />
     <div class="main-rpm-container" v-show="iframeCreated">
@@ -23,51 +23,82 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+<script>
+// import { Vue, Component } from "vue-property-decorator";
 
-//@Component
-export default class RPMAvatar extends Vue {
-  iframeCreated = false;
-//   receiveMessage(event: MessageEvent): void {
-//     if (event.origin == "https://fullbody.readyplayer.me") {
-//       document.getElementById("iframe")?.remove();
-//       setTimeout(() => {
-//         this.$unity?.sendAvatarUrlTest(event.data);
-//         this.iframeCreated = false;
-//       }, 1000);
-//     }
+// //@Component
+// export default class RPMAvatar extends Vue {
+//   iframeCreated = false;
+// //   receiveMessage(event: MessageEvent): void {
+// //     if (event.origin == "https://fullbody.readyplayer.me") {
+// //       document.getElementById("iframe")?.remove();
+// //       setTimeout(() => {
+// //         this.$unity?.sendAvatarUrlTest(event.data);
+// //         this.iframeCreated = false;
+// //       }, 1000);
+// //     }
+// //   }
+
+//   closeModal(): void {
+//     document.getElementById("iframe")?.remove();
+//     this.iframeCreated = false;
 //   }
 
-  closeModal(): void {
-    document.getElementById("iframe")?.remove();
-    this.iframeCreated = false;
-  }
-
-  makeAvatar(): void {
-    const iframeAttributes = {
-      id: "iframe",
-      src: "https://fullbody.readyplayer.me/",
-      className: "iframeContent",
-      allow: "camera *; microphone *",
-      style: "width: 100vw; height: 80vh; border: none;"
-    };
-    let iframe = document.createElement("iframe");
-    document
-      .getElementById("avatarContainer")
-      ?.appendChild(
-        Object.assign(iframe, Object.assign(iframe, iframeAttributes))
-      );
-    this.iframeCreated = true;
-  }
-
-//   mounted(): void {
-//     window.addEventListener("message", this.receiveMessage, false);
+//   makeAvatar(): void {
+//     const iframeAttributes = {
+//       id: "iframe",
+//       src: "https://fullbody.readyplayer.me/",
+//       className: "iframeContent",
+//       allow: "camera *; microphone *",
+//       style: "width: 100vw; height: 80vh; border: none;"
+//     };
+//     let iframe = document.createElement("iframe");
+//     document
+//       .getElementById("avatarContainer")
+//       ?.appendChild(
+//         Object.assign(iframe, Object.assign(iframe, iframeAttributes))
+//       );
+//     this.iframeCreated = true;
 //   }
+
+// //   mounted(): void {
+// //     window.addEventListener("message", this.receiveMessage, false);
+// //   }
+// }
+
+export default {
+  name: "RPMAvatar",
+  data() {
+    return {
+      iframeCreated = false
+    }
+  },
+  methods: {
+    closeModal() {
+      document.getElementById("iframe")?.remove();
+      this.iframeCreated = false;
+    },
+    makeAvatar() {
+        const iframeAttributes = {
+          id: "iframe",
+          src: "https://fullbody.readyplayer.me/",
+          className: "iframeContent",
+          allow: "camera *; microphone *",
+          style: "width: 100vw; height: 80vh; border: none;"
+        };
+        let iframe = document.createElement("iframe");
+        document
+          .getElementById("avatarContainer")
+          ?.appendChild(
+            Object.assign(iframe, Object.assign(iframe, iframeAttributes))
+          );
+        this.iframeCreated = true;
+    }
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #rpmTest {
   position: absolute;
   top: 0;
